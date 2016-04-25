@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="jqueryknob.widget.jqueryknob" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>jQuery knob</name>
+    <description>Progress circle (speedometer) based on jQuery knob open source project.</description>
+
+    <icon>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJTUUH4AQUCDoGMrL93gAAAZVJREFUOMvFk7FOG0EURc+bXWPjLbyKsEiEIkW0dFDRU/sP+AdqKv6Cz6DlAygjJCtFhOREKaiIkC2D1sPMzt4UVjZ2LJGCIrd8886T7n1vTJJ4gxxvVP53QRKTesJtvOUkndC1LlmW0el0yPP89QHTNOXi6QIvTyBwwAF77BFjxHuPmTEYDDCzTQuTOOF8fo6XRwgvz6M9Ymb8jkkSs9mMlFI7wCSpVs3Z7IxIRIjDziGn/VMKV7RgVVWEEFqwLEvMbGnhanFFINCoYbQ9YrQ9WvNpZhRFQZ7nVFUFwGKxoN/v42rVXPtrDGM/39+AV9XtdnFu6TrGuMzgIT3gcAhxvHW8BvyovzEOY36maVvr9XoApJSQhFuwwMxISgzdsG38Ej4zjl/5lH2gZ50/a1tZZdM0uIwMSRjGCy/t4/vsI+/cgO/1hMKKtTtZzSYvXUlDQ245d/UdR1tHAAyzXYbZ7kYO3vsWds7hSley43YAuHm5efVsJbXhtVYk6T7e6/LpUs/pWf9S0zSaz+cKIUiS7L//xl9EFedmj78KwAAAAABJRU5ErkJggg==</icon>
+
+    <properties>
+        <property key="value" type="attribute">
+            <caption>Attribute (path)</caption>
+            <category>Data source</category>
+            <description>Attribute (path)</description>
+            <attributeTypes>
+                <attributeType name="Integer" />
+            </attributeTypes>
+        </property>
+        <property key="minString" type="string" required="true" defaultValue="0">
+            <caption>Min value (numeric)</caption>
+            <category>Appearance</category>
+            <description>Minimum value.</description>
+        </property>
+        <property key="maxString" type="string" required="true" defaultValue="100">
+            <caption>Max value (numeric)</caption>
+            <category>Appearance</category>
+            <description>The maximum value.</description>
+        </property>
+        <property key="step" type="integer" required="true" defaultValue="1">
+            <caption>Step size</caption>
+            <category>Appearance</category>
+            <description>Step size.</description>
+        </property>
+        <property key="angleOffsetString" type="string" required="true" defaultValue="0">
+            <caption>Starting angle</caption>
+            <category>Appearance</category>
+            <description>Starting angle in degrees (numeric)</description>
+        </property>
+        <property key="angleArcString" type="string" required="true" defaultValue="360">
+            <caption>Arc size</caption>
+            <category>Appearance</category>
+            <description>Arc size in degrees (numeric)</description>
+        </property>
+        <property key="stopper" type="boolean" required="true" defaultValue="true">
+            <caption>Stopper</caption>
+            <category>Appearance</category>
+            <description>Stop at min &amp; max on keydown/mousewheel</description>
+        </property>
+        <property key="readOnly" type="boolean" required="true" defaultValue="false">
+            <caption>Disable input and events</caption>
+            <category>Appearance</category>
+            <description>Disable input and events.</description>
+        </property>
+        <property key="rotation" type="string" required="false" defaultValue="clockwise">
+            <caption>Rotation</caption>
+            <category>Appearance</category>
+            <description>Direction of progression.</description>
+        </property>
+        <property key="postFix" type="string" required="false" defaultValue="">
+            <caption>Postfix</caption>
+            <category>Appearance</category>
+            <description>Postfix string</description>
+        </property>
+        <property key="preFix" type="string" required="false" defaultValue="">
+            <caption>Prefix</caption>
+            <category>Appearance</category>
+            <description>Prefix string</description>
+        </property>
+        
+        
+        
+        
+        <property key="cursor" type="integer" required="true" defaultValue="0">
+            <caption>Cursor</caption>
+            <category>Behavior</category>
+            <description>Display mode "cursor", cursor size could be changed passing a numeric value to the option.</description>
+        </property>
+        <property key="thickness" type="integer" required="true" defaultValue="35">
+            <caption>Thickness</caption>
+            <category>Behavior</category>
+            <description>Thickness : gauge thickness. (Value between 0 and 100)</description>
+        </property>
+        <property key="lineCap" type="string" required="false" defaultValue="butt">
+            <caption>Linecap</caption>
+            <category>Behavior</category>
+            <description>Gauge stroke endings. | default=butt, round=rounded line endings.</description>
+        </property>
+        <property key="width" type="integer" required="true" defaultValue="200">
+            <caption>Width</caption>
+            <category>Behavior</category>
+            <description>Dial width.</description>
+        </property>
+        <property key="height" type="integer" required="true" defaultValue="200">
+            <caption>Height</caption>
+            <category>Behavior</category>
+            <description>Dial height.</description>
+        </property>
+        <property key="displayInput" type="boolean" required="true" defaultValue="true">
+            <caption>Display input</caption>
+            <category>Behavior</category>
+            <description>default=true | false=hide input.</description>
+        </property>
+        <property key="displayPrevious" type="boolean" required="true" defaultValue="false">
+            <caption>Display previous</caption>
+            <category>Behavior</category>
+            <description>default=false | true=displays the previous value with transparency.</description>
+        </property>
+        <property key="fgColor" type="string" required="false" defaultValue="">
+            <caption>Foreground color.</caption>
+            <category>Behavior</category>
+            <description>Foreground color.</description>
+        </property>
+        <property key="inputColor" type="string" required="false" defaultValue="">
+            <caption>Input color</caption>
+            <category>Behavior</category>
+            <description>Input value (number) color.</description>
+        </property>
+        <property key="font" type="string" required="false" defaultValue="">
+            <caption>Font</caption>
+            <category>Behavior</category>
+            <description>Font family.</description>
+        </property>
+        <property key="fontWeight" type="string" required="false" defaultValue="">
+            <caption>Font weight</caption>
+            <category>Behavior</category>
+            <description>Font weight.</description>
+        </property>
+        <property key="bgColor" type="string" required="false" defaultValue="">
+            <caption>Background color</caption>
+            <category>Behavior</category>
+            <description>Background color.</description>
+        </property>
+    </properties>
+</widget>
+
