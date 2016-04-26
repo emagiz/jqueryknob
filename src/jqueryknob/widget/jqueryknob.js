@@ -140,11 +140,18 @@ define([
             if (this.propertyDefined(this.bgColor)) {config.bgColor = this.bgColor;}
             
             var that = this;
-            config.release = function(v) { 
-                if (that._contextObj != null && that.value != null) {
-                    var contextValue = that._contextObj.get(that.value);
-                    if (contextValue !== v) {
-                        that._contextObj.set(that.value, v);
+            
+            if (!this.readOnly) {
+                config.release = function(v) { 
+                    if (that._contextObj != null && that.value != null) {
+                        var contextValue = that._contextObj.get(that.value);
+                        if (contextValue !== v) {
+                            try {
+                                that._contextObj.set(that.value, v);
+                            } catch (exception) {
+                                logger.error(exception.message);
+                            }
+                        }
                     }
                 }
             }
