@@ -158,9 +158,7 @@ define([
             config.format = function(v) { return that.preFix + v + that.postFix; }
             
             this.knob = $(this.firstKnobInput).knob(config);
-            var horizontalMargin = ($(this.knobParent).width()-this.knob.width())/2;
-            //var verticalMargin = ($(this.knobParent).height()-this.knob.height())/2; Did not work
-            $(this.knobParent).css({"margin-right": horizontalMargin.toString()+'px', "margin-left":horizontalMargin.toString()+'px'});
+            this.resizeKnob();
 
             this._updateRendering();
             this._setupEvents();
@@ -192,6 +190,15 @@ define([
         // mxui.widget._WidgetBase.resize is called when the page's layout is recalculated. Implement to do sizing calculations. Prefer using CSS instead.
         resize: function(box) {
           logger.debug(this.id + ".resize");
+          this.resizeKnob();
+        },
+        
+        resizeKnob: function()  {
+            if (this.knobParent != null && this.knob != null) {
+                var horizontalMargin = (($(this.knobParent).outerWidth(true)-this.knob.width())/2);
+                //var verticalMargin = ($(this.knobParent).height()-this.knob.height())/2; Did not work
+                $(this.knobParent).css({"margin-right": horizontalMargin.toString()+'px', "margin-left":horizontalMargin.toString()+'px'});
+            }  
         },
 
         // mxui.widget._WidgetBase.uninitialize is called when the widget is destroyed. Implement to do special tear-down work.
@@ -227,7 +234,7 @@ define([
                 if (knobValue !== value)    {
                     knob.val(value).trigger('change');
                 }
-                
+                               
             } else {
                 dojoStyle.set(this.domNode, "display", "none");
             }
